@@ -2,7 +2,7 @@
 
 Performing advanced string manipulation and analysis by accessing, iterating, and modifying lists.
 
-_Developing the skill of using the UPI method on every coding problem._
+Note: _Developing the skill of using the UPI method on every coding problem._
 
 # File Template
 
