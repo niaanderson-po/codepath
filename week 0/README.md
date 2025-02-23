@@ -9,7 +9,7 @@ Note: _Developing the skill of using the UPI method on every coding problem._
 ```python
 
 """
-Problem: One sentence Summary
+Problem: One sentence summary
 
 Understand:
 
@@ -23,9 +23,9 @@ Method, Time, Space
 """
 
 class problemName:
-def __init__(self, paramater):
-self.paramater = paramater
-
+    def __init__(self, paramater):
+        self.paramater = paramater
+        
     def methodName(self):
         pass
 
