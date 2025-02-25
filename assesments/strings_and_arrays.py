@@ -25,24 +25,13 @@ def needle_in_haystack(needle, haystack):
 
 #flowerbed [0,1,0,0,1]
 def flowerbed(bed, n):
-    for spot in range(len(flowerbed)):
-        if flowerbed[spot] == 0:
-            if spot == 0:
-                if flowerbed[spot+1] == 0:
+    modified_flowerbed = [0] + flowerbed + [0]
+    for spot in range(1,len(modified_flowerbed)-1):
+        if flowerbed[spot-1] == 0 and flowerbed[spot] == 0 and flowerbed[spot+1] == 0:
                     flowerbed[spot] = 1
                     n -= 1
-            if spot != 0 and spot != len(flowerbed)-1:
-                if flowerbed[spot-1] == 0 and flowerbed[spot+1] == 0:
-                    flowerbed[spot] = 1
-                    n -= 1
-            if spot == len(flowerbed) - 1:
-                if flowerbed[spot-1] == 0:
-                    flowerbed[spot] = 1
-                    n-= 1
-        if n == 0:
+        if n <= 0:
             return True
-    if len(flowerbed) == 0 and n == 0:
-        return True
     return False
 
 #Output of Snippet
