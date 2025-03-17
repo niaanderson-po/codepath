@@ -240,3 +240,36 @@ print(validate_nft_actions(actions_3))
 
 """
 
+"""
+input lst[float]
+output tuple(float)
+
+iterate
+below
+above
+if current <= target
+below = max(below, current)
+if current >= target
+above = min(above, current)
+"""
+def find_closest_nft_values(nft_values, budget):
+    below = float('-inf')
+    above = float('inf')
+
+    for nft_value in nft_values:
+        if nft_value <= budget:
+            below = max(below, nft_value)
+        elif nft_value >= budget:
+            above = min(above, nft_value)
+
+    return (below,above)
+
+#alternative approach: binary search
+
+nft_values = [3.5, 5.4, 7.2, 9.0, 10.5]
+nft_values_2 = [2.0, 4.5, 6.3, 7.8, 12.1]
+nft_values_3 = [1.0, 2.5, 4.0, 6.0, 9.0]
+
+print(find_closest_nft_values(nft_values, 8.0))
+print(find_closest_nft_values(nft_values_2, 6.5))
+print(find_closest_nft_values(nft_values_3, 3.0))
