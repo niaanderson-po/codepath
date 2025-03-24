@@ -169,9 +169,52 @@ head1 = Node(5, Node(6, Node(7, Node(8))))
 head2 = Node(8, Node(5, Node(6, Node(7))))
 
 # Linked List: 5 -> 6 -> 7 -> 8
-print(find_min(head1))
+# print(find_min(head1))
 
 # Linked List: 8 -> 5 -> 6 -> 7
-print(find_min(head2))
+# print(find_min(head2))
 
 #Problem 7
+"""
+input: lst & str
+output: lst
+"""
+
+class Node:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+# For testing
+def print_linked_list(head):
+    current = head
+    while current:
+        print(current.value, end=" -> " if current.next else "\n")
+        current = current.next
+
+def delete_item(head, item):
+    if head is None:
+        return head
+    
+    if head.value == item:
+        return head.next
+    
+    current = head
+    while current.next and current.next.value != item:
+        current = current.next
+
+    if current.next:
+        current.next = current.next.next
+    return head
+
+slingshot = Node("Slingshot")
+peaches = Node("Peaches")
+beetle = Node("Scarab Beetle")
+slingshot.next = peaches
+peaches.next = beetle
+
+# Linked List: slingshot -> peaches -> beetle
+print_linked_list(delete_item(slingshot, "Peaches"))
+
+# Linked List: slingshot -> beetle
+print_linked_list(delete_item(slingshot, "Triceratops Torso"))
