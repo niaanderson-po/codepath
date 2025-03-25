@@ -214,7 +214,49 @@ slingshot.next = peaches
 peaches.next = beetle
 
 # Linked List: slingshot -> peaches -> beetle
-print_linked_list(delete_item(slingshot, "Peaches"))
+# print_linked_list(delete_item(slingshot, "Peaches"))
 
 # Linked List: slingshot -> beetle
-print_linked_list(delete_item(slingshot, "Triceratops Torso"))
+# print_linked_list(delete_item(slingshot, "Triceratops Torso"))
+
+# Problem 8
+class Node:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+# For testing
+def print_linked_list(head):
+    current = head
+    while current:
+        print(current.value, end=" -> " if current.next else "\n")
+        current = current.next
+
+def tail_to_head(head):
+    if head is None or head.next is None:
+        return head
+    
+    prev = None
+    current = head
+    
+    while current.next:
+        prev = current
+        current = current.next
+    
+    if prev:
+        prev.next = None
+        current.next = head
+        head = current
+    
+    return head
+
+daisy = Node("Daisy")
+mario = Node("Mario")
+toad = Node("Toad") 
+peach = Node("Peach")
+daisy.next = mario
+mario.next = toad
+toad.next = peach
+
+# Linked List: Daisy -> Mario -> Toad -> Peach
+print_linked_list(tail_to_head(daisy))
